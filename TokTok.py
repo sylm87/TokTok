@@ -45,10 +45,10 @@ def find_vhost(ip_host, url_searched, fake=False, fake_domain=""):
         if protocol == "https":
             session = requests.Session()
             session.mount(url_searched, forcediphttpsadapter.adapters.ForcedIPHTTPSAdapter(dest_ip=ip_host))
-            response = session.get(url_searched, headers=headers, verify=False, allow_redirects=False)
+            response = session.get(url_searched, headers=headers, verify=False, allow_redirects=False, timeout=3)
         else:
             url_searched = url_searched.replace(vhost,ip_host)
-            response = requests.get(url_searched, headers=headers, allow_redirects=False)
+            response = requests.get(url_searched, headers=headers, allow_redirects=False, timeout=3)
 
 
         if response.status_code == (301 or 302):
