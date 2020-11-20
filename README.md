@@ -1,5 +1,5 @@
 # TokTok
-Script to finding hidden virtualhost (after DNS gathering), protected with WAFs such as Cloudfare, Akamai, Incapsula and wrong config in the original server.
+Script to finding hidden virtualhost (after DNS gathering), protected with WAFs such as Cloudflare, Akamai, Incapsula and wrong config in the original server.
 
 1.- Enumerate domains and subdomains of the enterprise
 
