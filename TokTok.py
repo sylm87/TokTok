@@ -52,12 +52,12 @@ def find_vhost(ip_host, url_searched, fake=False, fake_domain=""):
 
         if response.status_code == (301 or 302):
 
-            if str(response.headers["Location"]).find(str(vhost)) != -1:
-                print(" LOCALIZADO! (REDIRECT)")
-                return ["3XX"]
+            if ((str(response.headers["Location"]).find(str(vhost)) != -1) or (str(response.headers["Location"])[0] == "/")) and fake == False:
+                print(" POSIBLEMENTE LOCALIZADO (REDIRECT TO ->" + response.headers["Location"] + ")")
             else:
-                print ("FAIL! (REDIRECCIÓN EXTERNA)")
-                return ["3XX"]
+                print ("FAIL! (REDIRECCIÓN A -> " + response.headers["Location"] + ")")
+
+            return ["3XX"]
 
         elif response.status_code == 200:
 
