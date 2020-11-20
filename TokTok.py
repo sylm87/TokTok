@@ -6,6 +6,7 @@ __license__ = "GPLv3"
 __version__ = "0.1"
 __maintainer__ = "$y/_M"
 __email__ = "christian472006@gmail.com"
+__status__ = "Development"
 
 import requests  # Necesita instalarse (por ejemplo mediante pip: "pip install requests" )
 import forcediphttpsadapter.adapters # https://github.com/Roadmaster/forcediphttpsadapter (By Roadmaster)
@@ -126,7 +127,7 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
 
-    clear()
+    #clear()
     banner()
 
     web = args.url[0]
