@@ -15,7 +15,7 @@ import hashlib
 import os
 import argparse
 import socket
-
+import ipaddress
 
 
 fake_vhosts = ["fakehost.fakenow", "notexist.vhostinvalid", "notval.fkhs"]
@@ -140,8 +140,11 @@ if __name__ == '__main__':
             for line in fhosts:
                 host = line.strip()
                 try:
-                    socket.inet_aton(host)
-                    IP_list.append(host)
+                    for ip in ipaddress.IPv4Network(host):
+                    	IP_list.append(str(ip))
+                    #print(IP_list)
+                    #socket.inet_aton(host)
+                    #IP_list.append(host)
                 except:
                     pass
     except Exception as e:
